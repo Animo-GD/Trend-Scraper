@@ -1,0 +1,24 @@
+setuptools>=68.0  # Required by playwright-stealth (pkg_resources)
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+
+# Supabase — requires httpx>=0.26,<0.28
+supabase==2.10.0
+httpx>=0.26.0,<0.28.0
+
+# Scheduling
+apscheduler==3.10.4
+
+# Playwright for browser automation (stealth via inline JS injection)
+playwright==1.49.0
+
+# HTTP clients
+curl-cffi==0.7.3           # Anti-fingerprint TLS — used for X GraphQL scraping
+requests>=2.32.0           # General HTTP
+
+# Utilities
+python-dotenv==1.0.1
+tenacity>=9.0.0
+fake-useragent>=1.5.1
