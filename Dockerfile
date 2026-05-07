@@ -13,8 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # No need for --with-deps as the base image already has them
 RUN playwright install chromium
 
-# Copy application source
-COPY app/ ./app/
+# Copy everything to the container
+COPY . .
+
+# Ensure app is in the python path
+ENV PYTHONPATH=/app
 
 # Set Python to run in unbuffered mode (ensures logs appear in real-time)
 ENV PYTHONUNBUFFERED=1
