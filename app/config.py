@@ -5,9 +5,9 @@ from typing import Optional
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
-    # Supabase
-    supabase_url: str
-    supabase_service_role_key: str
+    # Supabase (Required for data, but optional in pydantic to avoid crash-on-startup)
+    supabase_url: str = ""
+    supabase_service_role_key: str = ""
 
     # X / Twitter cookies
     x_auth_token: str = ""

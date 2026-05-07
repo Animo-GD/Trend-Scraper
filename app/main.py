@@ -48,6 +48,7 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
 )
+print(">>> TREND SCRAPER API STARTING UP ON PORT 8000")
 
 app.add_middleware(
     CORSMiddleware,
