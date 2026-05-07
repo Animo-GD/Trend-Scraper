@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from app.database import get_supabase
-from app.scrapers import XScraper, InstagramScraper, FacebookScraper
+from app.scrapers import XScraper, InstagramScraper, FacebookScraper, TikTokScraper
 
 logger = logging.getLogger(__name__)
 
