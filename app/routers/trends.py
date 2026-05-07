@@ -77,13 +77,13 @@ async def search_trends(
     """Full-text search within trend content for a platform."""
     db = get_supabase()
     table = TABLE_MAP[platform]
-    content_col = "content" if platform in ("x", "facebook") else "caption"
+    content_col = "caption" if platform == "instagram" else "content"
 
-    # Use Supabase's textSearch (calls to_tsquery under the hood)
+    # Use ilike for broader compatibility across languages and without needing FTS indexes
     resp = (
         db.table(table)
         .select("*")
-        .text_search(content_col, q, config="english")
+        .ilike(content_col, f"%{q}%")
         .order("scraped_at", desc=True)
         .limit(limit)
         .execute()
